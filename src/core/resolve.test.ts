@@ -11,18 +11,18 @@ const link = (label: string, url?: string): SocialLink => ({
 })
 
 describe('resolveLinks', () => {
-  it('无值的始终排在队列尾部，保持各自相对顺序', () => {
+  it('showEmpty 为 true 时无值平台排在队列尾部，保持各自相对顺序', () => {
     const links = [link('a'), link('b', 'https://b'), link('c'), link('d', 'https://d')]
-    expect(resolveLinks(links).map((l) => l.label)).toEqual(['b', 'd', 'a', 'c'])
+    expect(resolveLinks(links, true).map((l) => l.label)).toEqual(['b', 'd', 'a', 'c'])
   })
 
-  it('showEmpty 为 false 时过滤掉无值平台', () => {
+  it('showEmpty 默认为 false：不传时过滤掉无值平台', () => {
     const links = [link('a'), link('b', 'https://b')]
-    expect(resolveLinks(links, false).map((l) => l.label)).toEqual(['b'])
+    expect(resolveLinks(links).map((l) => l.label)).toEqual(['b'])
   })
 
-  it('默认配置：抖音无值排在最后', () => {
-    const labels = resolveLinks(defaultLinks).map((l) => l.label)
+  it('默认配置：showEmpty 为 true 时抖音无值排在最后', () => {
+    const labels = resolveLinks(defaultLinks, true).map((l) => l.label)
     expect(labels[labels.length - 1]).toBe('抖音')
     expect(labels.slice(0, 3)).toEqual(['小红书', 'X', 'GitHub'])
   })

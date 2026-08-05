@@ -13,14 +13,14 @@ export interface MadeByFooterProps {
   name?: string
   /** 社媒链接列表，默认渲染内置的 hi超纯 社媒配置 */
   links?: SocialLink[]
-  /** 无值（无 url）的平台是否以置灰 icon 占位显示；false 则直接隐藏 */
+  /** 无值（无 url）的平台是否以置灰 icon 占位显示；默认 false 直接隐藏 */
   showEmpty?: boolean
 }
 
 export function MadeByFooter({
   name = DEFAULT_NAME,
   links = defaultLinks,
-  showEmpty = true,
+  showEmpty = false,
 }: MadeByFooterProps) {
   const visibleLinks = useMemo(() => resolveLinks(links, showEmpty), [links, showEmpty])
 

@@ -1,6 +1,6 @@
 {
   "name": "@hichaochun/made-by-footer",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Made by + branded social links footer. Framework-agnostic core with a Vue shell.",
   "type": "module",
   "exports": {

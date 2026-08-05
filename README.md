@@ -1,14 +1,14 @@
 # @hichaochun/made-by-footer
 
 页脚组件：`Made by <名字>` + 一排社媒品牌图标（simple-icons 官方 SVG path + 品牌色）。
-不传任何 props 时默认渲染 **hi超纯** 的社媒信息（小红书 / X / GitHub，抖音置灰占位）。
+不传任何 props 时默认渲染 **hi超纯** 的社媒信息（小红书 / X / GitHub；抖音无值，默认隐藏，`showEmpty=true` 时置灰占位）。
 
 私有包，不发布到 npm，通过 GitHub git URL 安装。
 
 ## 安装
 
 ```bash
-npm install github:dulk-dev/made-by-footer#v0.2.0
+npm install github:dulk-dev/made-by-footer#v0.3.0
 ```
 
 - 私有仓库，机器需要有 GitHub 凭据（git credential）。
@@ -54,11 +54,11 @@ import { brandIcons, defaultLinks, resolveLinks } from '@hichaochun/made-by-foot
 | --- | --- | --- | --- |
 | `name` | `string` | `'hi超纯'` | 「Made by」后显示的名字 |
 | `links` | `SocialLink[]` | 内置默认配置 | 社媒链接列表，见下 |
-| `showEmpty` | `boolean` | `true` | 无值平台是否以置灰 icon 占位显示；`false` 则隐藏 |
+| `showEmpty` | `boolean` | `false` | 无值平台是否以置灰 icon 占位显示；`false` 则隐藏 |
 
 `SocialLink`：`{ label: string; url?: string; path: string; color: string }`
 
-- `url` 留空 = 该平台无值：icon 置灰、不可点、hover 显示「暂未开通」tooltip。
+- `url` 留空 = 该平台无值：默认直接隐藏；`showEmpty=true` 时 icon 置灰、不可点、hover 显示「暂未开通」tooltip。
 - 排序规则：有值的在前，无值的固定在队列尾部（各自保持相对顺序）。
 - `path` 是 24x24 SVG path，可从 `brandIcons`（小红书 / X / 抖音 / GitHub）或 `simple-icons` 包取。
 
