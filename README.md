@@ -90,5 +90,7 @@ npm run build   # vite（JS + Vue CSS 注入）+ vue-tsc / tsc（类型声明）
 # 1. 改 package.json 的 version
 # 2. 提交后打 tag 并推送
 git tag v<x.y.z> && git push origin master --tags
-# 3. 消费方把依赖里的 tag 改成新版本，重新 npm install
+# 3. 消费方显式指定新 tag 重装（仅改 package.json 再跑裸 npm install 可能不会更新 git 依赖）
+npm install '@hichaochun/made-by-footer@github:dulk-dev/made-by-footer#v<x.y.z>'
+# 4. Vite 项目需重启 dev server（必要时加 --force 重建依赖预构建缓存）
 ```
