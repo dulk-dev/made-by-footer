@@ -2,6 +2,11 @@
   "name": "@hichaochun/made-by-footer",
   "version": "0.3.0",
   "description": "Made by + branded social links footer. Framework-agnostic core with a Vue shell.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dulk-dev/made-by-footer.git"
+  },
   "type": "module",
   "exports": {
     ".": {

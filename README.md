@@ -1,19 +1,18 @@
-# @hichaochun/made-by-footer
+# made-by-footer
 
 页脚组件：`Made by <名字>` + 一排社媒品牌图标（simple-icons 官方 SVG path + 品牌色）。
-不传任何 props 时默认渲染 **hi超纯** 的社媒信息（小红书 / X / GitHub；抖音无值，默认隐藏，`showEmpty=true` 时置灰占位）。
+不传任何 props 时默认渲染作者 **hi超纯** 的社媒信息（小红书 / X / GitHub；抖音无值，默认隐藏，`showEmpty=true` 时置灰占位）。
 
-私有包，不发布到 npm，通过 GitHub git URL 安装。
+> 内置默认配置是作者本人的社媒链接，仅作开箱即用的演示；实际使用请通过 `name` / `links` props 换成你自己的信息。
 
 ## 安装
 
 ```bash
-npm install github:dulk-dev/made-by-footer#v0.3.0
+npm install github:dulk-dev/made-by-footer#v0.3.1
 ```
 
-- 私有仓库，机器需要有 GitHub 凭据（git credential）。
-- 安装时会自动跑 `prepare` 构建 `dist`，无需手动发版。
-- 升级：改版本号 tag 重新 `npm install`（见「发布新版本」）。
+- 通过 git tag 安装，安装时自动跑 `prepare` 构建 `dist`，无需手动发版。
+- 升级：改 package.json 里的 tag 后重新安装即可（注意裸 `npm install` 可能不会更新 git 依赖，可用 `npm install '@hichaochun/made-by-footer@github:dulk-dev/made-by-footer#v新版本号'` 强制指定）。
 
 ## 用法
 
@@ -86,6 +85,8 @@ npm run build   # vite（JS + Vue CSS 注入）+ vue-tsc / tsc（类型声明）
 
 ## 发布新版本
 
+本项目通过 GitHub tag 分发（不发 npm）：
+
 ```bash
 # 1. 改 package.json 的 version
 # 2. 提交后打 tag 并推送
@@ -94,3 +95,11 @@ git tag v<x.y.z> && git push origin master --tags
 npm install '@hichaochun/made-by-footer@github:dulk-dev/made-by-footer#v<x.y.z>'
 # 4. Vite 项目需重启 dev server（必要时加 --force 重建依赖预构建缓存）
 ```
+
+## 图标与品牌声明
+
+品牌图标路径与颜色来自 [simple-icons](https://github.com/simple-icons/simple-icons)（CC0 1.0 / MIT）。各品牌图标及名称为其各自所有者的商标，使用时请遵守对应品牌的指南；本项目与所列品牌无任何关联、赞助或背书关系。simple-icons 未收录抖音，`brandIcons.douyin` 借用 TikTok 的音符字形作占位。
+
+## License
+
+[MIT](./LICENSE) © 2026 Chaochun
